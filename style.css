@@ -1,4 +1,4 @@
-/* Fonts */
+/* Fonts and body */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -29,7 +29,7 @@ p {
   margin: 0;
 }
 
-/* Content row: text left, media right */
+/* Flex row for text + media */
 .content-row {
   display: flex;
   flex-direction: row;
@@ -55,10 +55,12 @@ p {
 
 /* Images and videos */
 .section-image, .section-video {
-  max-width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 300px;           /* limit so it doesn’t cover the screen */
+  width: 100%;                /* responsive inside container */
+  border-radius: 20px;        /* cute rounded frame */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* soft shadow */
   margin: 15px 0;
+  object-fit: cover;          /* crop nicely if needed */
 }
 
 /* Sections */
@@ -102,7 +104,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Overlay */
+/* Overlay for first click to start music */
 #startOverlay {
   position: fixed;
   top:0; left:0;
@@ -120,4 +122,18 @@ button:hover {
   font-size: 28px;
   text-align: center;
   color: #2c2c2c;
+}
+
+/* Responsive for tablets/mobiles */
+@media (max-width: 768px) {
+  .content-row {
+    flex-direction: column; /* stack text above media */
+    align-items: center;
+  }
+  .text {
+    text-align: center;
+  }
+  .section-image, .section-video {
+    max-width: 80%; /* bigger but still responsive */
+  }
 }
