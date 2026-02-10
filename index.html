@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Douaa 🤍</title>
 <link rel="stylesheet" href="style.css">
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -24,24 +23,43 @@
 <!-- Section 1: Apology -->
 <div class="section active" id="section1" data-bg="linear-gradient(120deg, #fbe8e8, #fff1f3)">
   <h1>Apology</h1>
-  <p>
-    I know that sometimes I messed up.<br>
-    I know I hurt you, and that I may have changed the way you see me.<br><br>
-    I’m truly sorry, babe.<br><br>
-    I’ll do my best to make you feel loved and appreciated the way you deserve.
-  </p>
+  <div class="content-row">
+    <div class="text">
+      <p>
+        I know that sometimes I messed up.<br>
+        I know I hurt you, and that I may have changed the way you see me.<br><br>
+        I’m truly sorry, babe.<br><br>
+        I’ll do my best to make you feel loved and appreciated the way you deserve.
+      </p>
+    </div>
+    <div class="media">
+      <!-- Add a picture or video -->
+      <img src="douaa1.jpg" alt="Douaa" class="section-image">
+      <!-- Example video -->
+      <!-- <video class="section-video" controls>
+        <source src="vid1.mp4" type="video/mp4">
+      </video> -->
+    </div>
+  </div>
   <button onclick="nextSection()">Next →</button>
 </div>
 
 <!-- Section 2: Romance -->
 <div class="section" id="section2" data-bg="linear-gradient(120deg, #ffe4e1, #fff0f5)">
   <h1>Romance</h1>
-  <p>
-    Douaa, you are the person my heart chose. Loving you isn’t an option, it’s mandatory, I can’t stop doing it.<br><br>
-    You're the first one I loved, the first I said “I love you” to, the first one that made me feel truly loved.<br><br>
-    You gave me love and care to the point I got attached so hard, and now I can’t even think of my life without you being a special part of it.<br><br>
-    I love you, Douaa. I really do.
-  </p>
+  <div class="content-row">
+    <div class="text">
+      <p>
+        Douaa, you are the person my heart chose. Loving you isn’t an option, it’s mandatory, I can’t stop doing it.<br><br>
+        You're the first one I loved, the first I said “I love you” to, the first one that made me feel truly loved.<br><br>
+        You gave me love and care to the point I got attached so hard, and now I can’t even think of my life without you being a special part of it.<br><br>
+        I love you, Douaa. I really do.
+      </p>
+    </div>
+    <div class="media">
+      <img src="douaa2.jpg" alt="Douaa smiling" class="section-image">
+    </div>
+  </div>
   <button onclick="prevSection()">← Back</button>
   <button onclick="nextSection()">Next →</button>
 </div>
@@ -49,17 +67,28 @@
 <!-- Section 3: Admiring -->
 <div class="section" id="section3" data-bg="linear-gradient(120deg, #fff0f5, #f0f8ff)">
   <h1>Admiring You</h1>
-  <p>
-    When I look at you, I see beauty, intelligence, cuteness, love, joy.<br>
-    I see a pure soul that deserves all the happiness and love.<br><br>
-    Just look at your smile here, this video is still on my mind (حسدت تشي), I wish I were in his place 😭<br><br>
-    These are a bit of your appearance from outside… now from inside?<br>
-    I can’t even describe it.<br><br>
-    Your warm soul, your patience, your innocence, your sensitivity,
-    your love for your friends, your love for me.<br><br>
-    Qualities that everyone looks for in his wife. Lucky me, I have you.<br><br>
-    Your heart is lighter than a feather.
-  </p>
+  <div class="content-row">
+    <div class="text">
+      <p>
+        When I look at you, I see beauty, intelligence, cuteness, love, joy.<br>
+        I see a pure soul that deserves all the happiness and love.<br><br>
+        Just look at your smile here, this video is still on my mind (حسدت تشي), I wish I were in his place 😭<br><br>
+        These are a bit of your appearance from outside… now from inside?<br>
+        I can’t even describe it.<br><br>
+        Your warm soul, your patience, your innocence, your sensitivity,
+        your love for your friends, your love for me.<br><br>
+        Qualities that everyone looks for in his wife. Lucky me, I have you.<br><br>
+        Your heart is lighter than a feather.
+      </p>
+    </div>
+    <div class="media">
+      <img src="douaa3.jpg" alt="Douaa cute" class="section-image">
+      <!-- Example video -->
+      <!-- <video class="section-video" controls>
+        <source src="vid2.mp4" type="video/mp4">
+      </video> -->
+    </div>
+  </div>
   <button onclick="prevSection()">← Back</button>
   <button onclick="nextSection()">Next →</button>
 </div>
@@ -67,9 +96,17 @@
 <!-- Section 4: Future -->
 <div class="section" id="section4" data-bg="linear-gradient(120deg, #e0ffff, #f0fff0)">
   <h1>Our Future</h1>
-  <p>
-    <!-- Future text will go here -->
-  </p>
+  <div class="content-row">
+    <div class="text">
+      <p>
+        <!-- Future text will go here -->
+      </p>
+    </div>
+    <div class="media">
+      <!-- Optional picture/video of dream/future -->
+      <!-- <img src="future.jpg" alt="Our future" class="section-image"> -->
+    </div>
+  </div>
   <button onclick="prevSection()">← Back</button>
 </div>
 
@@ -85,7 +122,6 @@ overlay.addEventListener('click', () => {
   overlay.style.display = 'none';
 });
 
-// Show section with fade
 function showSection(index) {
   if(index === current) return;
 
@@ -97,7 +133,6 @@ function showSection(index) {
 
   current = index;
 
-  // Smoothly update body background
   document.body.style.background = nextSection.getAttribute('data-bg');
 }
 
