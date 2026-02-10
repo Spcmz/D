@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For You 🤍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Opening / Apology -->
+  <section class="section fade">
+    <h1>Before anything else…</h1>
+    <p>
+      I know that sometimes I messed up.  
+      I know I hurt you, and that I may have changed the way you see me.
+      <br><br>
+      I’m truly sorry, babe.
+      <br><br>
+      I don’t expect this to erase anything,  
+      but I promise I’ll do my best — every day —  
+      to make you feel loved and appreciated the way you deserve.
+    </p>
+  </section>
+
+  <!-- Your Video -->
+  <section class="section fade">
+    <h2>This is me, being honest</h2>
+    <video controls>
+      <source src="your-video.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- Romantic Transition -->
+  <section class="section fade">
+    <p class="highlight">
+      And still… after everything,  
+      you are the person my heart chooses.
+    </p>
+  </section>
+
+  <!-- Her Photos -->
+  <section class="section fade">
+    <div class="gallery">
+      <img src="her1.jpg">
+      <img src="her2.jpg">
+      <img src="her3.jpg">
+    </div>
+
+    <p>
+      You have a patience that calms everything around you.  
+      There’s an innocence in you that feels rare and pure.
+      <br><br>
+      Gentle. Kind. Soft in the way that matters most.
+    </p>
+  </section>
+
+  <!-- Her Video -->
+  <section class="section fade">
+    <video muted autoplay loop>
+      <source src="her-video.mp4" type="video/mp4">
+    </video>
+    <p class="small">
+      Even from far away, you feel close.
+    </p>
+  </section>
+
+  <!-- Emotional Core -->
+  <section class="section fade">
+    <p>
+      Distance isn’t easy.
+      <br><br>
+      There are days I wish I could reach for your hand  
+      instead of my phone.
+      <br><br>
+      But somehow, you’ve still become my comfort,  
+      my calm,  
+      my favorite part of the day.
+    </p>
+  </section>
+
+  <!-- Future -->
+  <section class="section fade">
+    <p>
+      One day, this distance will just be a memory.
+      <br><br>
+      Until then, I choose patience.  
+      I choose effort.  
+      I choose you.
+    </p>
+  </section>
+
+  <!-- Valentine -->
+  <section class="section fade">
+    <h2>So…</h2>
+    <p>Will you be my Valentine?</p>
+    <button onclick="showLove()">Yes 🤍</button>
+    <p id="final" class="hidden">
+      I’m grateful for you. Always.
+    </p>
+  </section>
+
+<script>
+  function showLove() {
+    document.getElementById("final").classList.remove("hidden");
+  }
+</script>
+
+</body>
+</html>
