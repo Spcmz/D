@@ -33,16 +33,12 @@
       </p>
     </div>
     <div class="media">
-      <!-- Add a picture or video -->
-      <img src="douaa1.jpg" alt="Douaa" class="section-image">
-      <!-- Example video -->
-      <!-- <video class="section-video" controls>
-        <source src="vid1.mp4" type="video/mp4">
-      </video> -->
+      <!-- No media for Section 1 -->
     </div>
   </div>
   <button onclick="nextSection()">Next →</button>
 </div>
+
 
 <!-- Section 2: Romance -->
 <div class="section" id="section2" data-bg="linear-gradient(120deg, #ffe4e1, #fff0f5)">
@@ -57,7 +53,7 @@
       </p>
     </div>
     <div class="media">
-      <img src="douaa2.jpg" alt="Douaa smiling" class="section-image">
+      <img src="romance1.jpg" alt="Romantic pic" class="section-image">
     </div>
   </div>
   <button onclick="prevSection()">← Back</button>
@@ -82,11 +78,11 @@
       </p>
     </div>
     <div class="media">
-      <img src="douaa3.jpg" alt="Douaa cute" class="section-image">
-      <!-- Example video -->
-      <!-- <video class="section-video" controls>
-        <source src="vid2.mp4" type="video/mp4">
-      </video> -->
+      <img src="admire1.jpg" alt="Cute pic 1" class="section-image">
+      <img src="admire2.jpg" alt="Cute pic 2" class="section-image">
+      <video class="section-video" controls>
+        <source src="admire_vid.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
   <button onclick="prevSection()">← Back</button>
@@ -103,12 +99,12 @@
       </p>
     </div>
     <div class="media">
-      <!-- Optional picture/video of dream/future -->
-      <!-- <img src="future.jpg" alt="Our future" class="section-image"> -->
+      <img src="future1.jpg" alt="Future pic" class="section-image">
     </div>
   </div>
   <button onclick="prevSection()">← Back</button>
 </div>
+
 
 <script>
 const sections = document.querySelectorAll('.section');
@@ -142,3 +138,4 @@ function prevSection() { if(current > 0) showSection(current-1); }
 
 </body>
 </html>
+
