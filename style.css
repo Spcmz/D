@@ -26,15 +26,46 @@ p {
   line-height: 1.6;
   font-family: 'Poppins', sans-serif;
   color: #444;
-  max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
+}
+
+/* Content row: text left, media right */
+.content-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Text container */
+.text {
+  flex: 1 1 300px;
+  text-align: left;
+}
+
+/* Media container */
+.media {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Images and videos */
+.section-image, .section-video {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin: 15px 0;
 }
 
 /* Sections */
 .section {
   text-align: center;
-  max-width: 700px;
-  padding: 50px 30px;
+  max-width: 900px;
+  padding: 40px 30px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -43,8 +74,8 @@ p {
   transition: opacity 0.5s ease;
   pointer-events: none;
   background: rgba(255, 255, 255, 0.6);
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .section.active {
@@ -71,7 +102,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Overlay for first click */
+/* Overlay */
 #startOverlay {
   position: fixed;
   top:0; left:0;
