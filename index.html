@@ -1,85 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentine Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Douaa 🤍</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Section 1: Apology -->
-  <div class="section" id="section1">
-    <h1><!-- Apology title --></h1>
-    <p><!-- Apology text --></p>
-    <!-- Optional video -->
-    <video controls>
-      <source src="apology-video.mp4" type="video/mp4">
-    </video>
-    <button onclick="nextSection()">Next →</button>
-  </div>
+<!-- Spotify player (always visible) -->
+<div class="spotify-player">
+  <iframe data-testid="embed-iframe" style="border-radius:12px"
+    src="https://open.spotify.com/embed/track/7D0RhFcb3CrfPuTJ0obrod?utm_source=generator"
+    width="100%" height="80" frameBorder="0"
+    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
 
-  <!-- Section 2: Romance -->
-  <div class="section hidden" id="section2">
-    <h1><!-- Romance title --></h1>
-    <p><!-- Romance text --></p>
-    <!-- Placeholder for 1-2 photos -->
-    <div class="gallery">
-      <img src="romance1.jpg" alt="Romance photo 1">
-      <img src="romance2.jpg" alt="Romance photo 2">
-    </div>
-    <button onclick="prevSection()">← Back</button>
-    <button onclick="nextSection()">Next →</button>
-  </div>
+<!-- Section 1: Apology -->
+<div class="section active" id="section1" data-bg="#fbe8e8">
+  <h1>Apology</h1>
+  <p>
+    I know that sometimes I messed up.<br>
+    I know I hurt you, and that I may have changed the way you see me.<br><br>
+    I’m truly sorry, babe.<br><br>
+    I’ll do my best to make you feel loved and appreciated the way you deserve.
+  </p>
+  <button onclick="nextSection()">Next →</button>
+</div>
 
-  <!-- Section 3: Admiration -->
-  <div class="section hidden" id="section3">
-    <h1><!-- Admiration title --></h1>
-    <p><!-- Admiration text --></p>
-    <!-- Optional video -->
-    <video muted autoplay loop>
-      <source src="admire-video.mp4" type="video/mp4">
-    </video>
-    <button onclick="prevSection()">← Back</button>
-    <button onclick="nextSection()">Next →</button>
-  </div>
+<!-- Section 2: Romance -->
+<div class="section" id="section2" data-bg="#ffe4e1">
+  <h1>Romance</h1>
+  <p>
+    Douaa, you are the person my heart chose. Loving you isn’t an option, it’s mandatory, I can’t stop doing it.<br><br>
+    You're the first one I loved, the first I said “I love you” to, the first one that made me feel truly loved.<br><br>
+    You gave me love and care to the point I got attached so hard, and now I can’t even think of my life without you being a special part of it.<br><br>
+    I love you, Douaa. I really do.
+  </p>
+  <button onclick="prevSection()">← Back</button>
+  <button onclick="nextSection()">Next →</button>
+</div>
 
-  <!-- Section 4: Future -->
-  <div class="section hidden" id="section4">
-    <h1><!-- Future title --></h1>
-    <p><!-- Future text --></p>
-    <!-- Optional video or photo -->
-    <video muted autoplay loop>
-      <source src="future-video.mp4" type="video/mp4">
-    </video>
-    <button onclick="prevSection()">← Back</button>
-    <button onclick="showFinal()">Yes 🤍</button>
-    <p id="final" class="hidden"><!-- Final message --></p>
-  </div>
+<!-- Section 3: Admiring -->
+<div class="section" id="section3" data-bg="#fff0f5">
+  <h1>Admiring You</h1>
+  <p>
+    When I look at you, I see beauty, intelligence, cuteness, love, joy.<br>
+    I see a pure soul that deserves all the happiness and love.<br><br>
+    Just look at your smile here, this video is still on my mind (حسدت تشي), I wish I were in his place 😭<br><br>
+    These are a bit of your appearance from outside… now from inside?<br>
+    I can’t even describe it.<br><br>
+    Your warm soul, your patience, your innocence, your sensitivity,
+    your love for your friends, your love for me.<br><br>
+    Qualities that everyone looks for in his wife. Lucky me, I have you.<br><br>
+    Your heart is lighter than a feather.
+  </p>
+  <button onclick="prevSection()">← Back</button>
+  <button onclick="nextSection()">Next →</button>
+</div>
+
+<!-- Section 4: Future -->
+<div class="section" id="section4" data-bg="#e0ffff">
+  <h1>Our Future</h1>
+  <p>
+    <!-- Future text will go here -->
+  </p>
+  <button onclick="prevSection()">← Back</button>
+</div>
 
 <script>
-  const sections = document.querySelectorAll('.section');
-  let current = 0;
+const sections = document.querySelectorAll('.section');
+let current = 0;
 
-  function showSection(index) {
-    sections.forEach((sec, i) => {
-      sec.classList.toggle('hidden', i !== index);
-    });
-    current = index;
-  }
+function showSection(index) {
+  sections.forEach((sec, i) => sec.classList.remove('active'));
+  sections[index].classList.add('active');
+  current = index;
+  // Change body background to match section
+  document.body.style.background = sections[index].getAttribute('data-bg');
+}
 
-  function nextSection() {
-    if (current < sections.length - 1) showSection(current + 1);
-  }
+function nextSection() {
+  if(current < sections.length -1) showSection(current+1);
+}
 
-  function prevSection() {
-    if (current > 0) showSection(current - 1);
-  }
-
-  function showFinal() {
-    document.getElementById("final").classList.remove("hidden");
-  }
+function prevSection() {
+  if(current > 0) showSection(current-1);
+}
 </script>
 
 </body>
