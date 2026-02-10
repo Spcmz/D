@@ -1,0 +1,16 @@
+body {
+  background: #fbe8e8;
+  font-family: 'Inter', sans-serif;
+}
+
+h1 {
+  color: #2c2c2c;
+  text-align: center;
+}
+
+button {
+  background: #2c2c2c;
+  color: white;
+  border-radius: 30px;
+  padding: 12px 30px;
+}
