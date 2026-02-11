@@ -422,6 +422,19 @@ sections.forEach(section => {
     if(section.classList.contains('active')) startStickers(section,3,800);
   });
 });
+// Back button in Valentine section
+document.getElementById('valBackBtn').addEventListener('click', () => {
+  // Remove active class from Valentine section
+  valentineSection.classList.remove('active');
+
+  // Go back to "Our Future" section (index 3)
+  sections[3].classList.add('active');
+  current = 3;
+
+  // Restore music volume
+  fadeToVolume(audio, 1, 2000);
+});
+
 </script>
 
 </body>
