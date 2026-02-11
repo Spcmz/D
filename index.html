@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 🤍</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===== GENERAL ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  color: #2c2c2c;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #c94f6d;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* START OVERLAY */
+#startOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+#startOverlay h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* SECTIONS */
+.section {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  width: 100%;
+  padding: 50px 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* CONTENT ROW */
+.content-row {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.text { 
+  flex: 1; 
+  font-size: 1.2rem; 
+  line-height: 1.6; 
+  text-align: left; 
+  font-weight: 600;
+}
+.text-center { 
+  flex: 1; 
+  font-size: 1.3rem; 
+  line-height: 1.6; 
+  text-align: center; 
+  font-weight: 600;
+}
+
+.media { 
+  flex: 1; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.section-image,
+.section-video {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+
+/* SECTION 3 ADMIRING LAYOUT */
+.section.admiring .content-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section.admiring .media.video-left {
+  order: 1;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.section.admiring .text-center {
+  order: 2;
+}
+
+.section.admiring .media.images-right {
+  order: 3;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.section.admiring .media.images-right img,
+.section.admiring .media.video-left video {
+  max-width: 200px;
+}
+
+/* BUTTONS */
+button {
+  margin: 20px 10px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #c94f6d;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+button:hover { transform: scale(1.05); opacity: 0.9; }
+.nav { text-align: center; }
+
+/* HEARTS BACKGROUND */
+#heartCanvas {
+  position: fixed;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .content-row { flex-direction: column; text-align: center; }
+  .text, .text-center { text-align: center; font-size: 1.2rem; }
+  .section.admiring .content-row { flex-direction: column; }
+  .section.admiring .media.images-right img,
+  .section.admiring .media.video-left video { max-width: 80%; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="heartCanvas"></canvas>
+
+<div id="startOverlay"><h2>Click to start 💖</h2></div>
+<audio id="bgMusic" loop>
+  <source src="Sparks.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SECTION 1 -->
+<section class="section active" style="background: linear-gradient(120deg,#fbe8e8,#fff1f3);">
+  <h1>Apology</h1>
+  <div class="content-row">
+    <div class="text">
+      <p>
+        I know that sometimes I messed up.<br>
+        I know I hurt you, and that I may have changed the way you see me.<br><br>
+        I’m truly sorry, babe.<br><br>
+        I’ll do my best to make you feel loved and appreciated the way you deserve.
+      </p>
+    </div>
+    <div class="media"><img src="apology1.jpg" class="section-image"></div>
+  </div>
+  <button onclick="nextSection()">Next →</button>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section" style="background: linear-gradient(120deg,#ffe4e1,#fff0f5);">
+  <h1>Romance</h1>
+  <div class="content-row">
+    <div class="text">
+      <p>
+        Douaa, you are the person my heart chose. Loving you isn’t an option, it’s mandatory, I can’t stop doing it.<br><br>
+        You're the first one I loved, the first I said “I love you” to, the first one that made me feel truly loved.<br><br>
+        I love you, Douaa. I really do.
+      </p>
+    </div>
+    <div class="media"><img src="romance1.jpg" class="section-image"></div>
+  </div>
+  <div class="nav">
+    <button onclick="prevSection()">← Back</button>
+    <button onclick="nextSection()">Next →</button>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section admiring" style="background: linear-gradient(120deg,#fff0f5,#f0f8ff);">
+  <h1>Admiring You</h1>
+  <div class="content-row">
+    <div class="media video-left">
+      <video class="section-video" autoplay muted loop>
+        <source src="admire_vid.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="text-center">
+      <p>
+        When i look at you i see beauty, intelligence , cuteness , love , joy, 
+I see a pure soul that deserves all the happiness and love.
+Just look at your smile here, this vid is still on my mind (حسدت تشي) i wish i were in his place 😭
+These are a bit of ur appearance from outside , now from inside ? i cant even describe it, your warm soul , your patience, your innocence, your sensitivity, your love for ur friends, your love for me  , qualities that everyone looks for in his wife, lucky me i have you , Your heart is lighter than a feather.
+      </p>
+    </div>
+    <div class="media images-right">
+      <img src="admire1.jpg" class="section-image">
+      <img src="admire2.jpg" class="section-image">
+    </div>
+  </div>
+  <div class="nav">
+    <button onclick="prevSection()">← Back</button>
+    <button onclick="nextSection()">Next →</button>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section" style="background: linear-gradient(120deg,#e0ffff,#f0fff0);">
+  <h1>Our Future</h1>
+  <div class="content-row">
+    <div class="text"><p>I see a future with you.<br>Laughs, dreams, love, forever.</p></div>
+    <div class="media"><img src="future1.jpg" class="section-image"></div>
+  </div>
+  <button onclick="prevSection()">← Back</button>
+  <button onclick="nextSection()">Next →</button>
+</section>
+
+<!-- SECTION 5 - VALENTINE -->
+<section class="section valentine" style="background: linear-gradient(120deg,#ffe6f0,#ffd6e8);">
+  <h1>Valentine Question 💌</h1>
+  <div class="text-center" style="font-size:2rem; margin-top:50px;">
+    Douaa, will you be my valentine?
+  </div>
+  <div class="nav" style="margin-top:30px;">
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 💔</button>
+<button id="valBackBtn">← Back</button>
+  </div>
+
+</section>
+
+<!-- FINAL LOVE SECTION -->
+<section class="section final-love" style="background: linear-gradient(120deg,#ffe6f0,#ffd6e8);">
+<h1 style="font-size: 10rem;">I love you forever sugar 🤍 </h1>
+<div class="nav">
+    <button id="finalBackBtn">← Back</button>
+  </div>
+</section>
+
+<script>
+const finalBackBtn = document.getElementById('finalBackBtn');
+finalBackBtn.addEventListener('click', () => {
+  // Hide final love
+  finalLoveSection.classList.remove('active');
+  // Show Valentine section
+  valentineSection.classList.add('active');
+  // Update current index
+  current = Array.from(sections).indexOf(valentineSection);
+});
+/* --- NAVIGATION --- */
+const sections = document.querySelectorAll('.section');
+let current = 0;
+const audio = document.getElementById('bgMusic');
+const overlay = document.getElementById('startOverlay');
+
+overlay.addEventListener('click', () => {
+  audio.play();
+  overlay.style.display = 'none';
+});
+
+function showSection(index){
+  if(index===current) return;
+  sections[current].classList.remove('active');
+  sections[index].classList.add('active');
+  current=index;
+}
+
+function nextSection(){ if(current<sections.length-1) showSection(current+1); }
+function prevSection(){ if(current>0) showSection(current-1); }
+
+/* --- HEARTS --- */
+const canvas = document.getElementById('heartCanvas');
+const ctx = canvas.getContext('2d');
+function resizeCanvas(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight;}
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
+
+class Heart{
+  constructor(){this.reset();}
+  reset(){this.x=Math.random()*canvas.width; this.y=canvas.height+Math.random()*50;
+    this.size=2+Math.random()*5; this.speed=0.3+Math.random()*0.8;
+    this.opacity=0.3+Math.random()*0.5; this.opacitySpeed=0.002+Math.random()*0.004;}
+  draw(){ ctx.fillStyle=`rgba(255,${150+Math.random()*50},${180+Math.random()*75},${this.opacity})`;
+    ctx.beginPath(); ctx.moveTo(this.x,this.y);
+    ctx.bezierCurveTo(this.x,this.y-this.size/2,this.x-this.size/2,this.y-this.size,this.x,this.y-this.size*1.5);
+    ctx.bezierCurveTo(this.x+this.size/2,this.y-this.size,this.x,this.y-this.size/2,this.x,this.y); ctx.fill();}
+  update(){ this.y-=this.speed; this.x+=Math.sin(this.y/50)*0.3;
+    this.opacity+=this.opacitySpeed; if(this.opacity>1||this.opacity<0.3) this.opacitySpeed*=-1;
+    if(this.y<-this.size) this.reset();}
+}
+
+const hearts=[]; for(let i=0;i<60;i++) hearts.push(new Heart());
+function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); hearts.forEach(h=>{h.update();h.draw();}); requestAnimationFrame(animate);}
+animate();
+
+/* --- VALENTINE BUTTONS --- */
+const valentineSection = document.querySelector('.valentine');
+const finalLoveSection = document.querySelector('.final-love');
+
+document.getElementById('yesBtn').addEventListener('click', () => {
+  // hide all sections
+  sections.forEach(sec => sec.classList.remove('active'));
+  // show final love
+  finalLoveSection.classList.add('active');
+});
+
+// No button jumps
+const noBtn = document.getElementById('noBtn');
+noBtn.addEventListener('click', () => {
+  const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+  const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+  noBtn.style.position = 'absolute';
+  noBtn.style.left = randomX + 'px';
+  noBtn.style.top = randomY + 'px';
+});
+const valBackBtn = document.getElementById('valBackBtn');
+valBackBtn.addEventListener('click', () => {
+  // Hide Valentine section
+  valentineSection.classList.remove('active');
+  // Show previous section (Our Future)
+  const prevIndex = Array.from(sections).indexOf(valentineSection) - 1;
+  showSection(prevIndex);
+});
+</script>
+
+</body>
+</html>
